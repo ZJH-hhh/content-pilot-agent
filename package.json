@@ -1,0 +1,21 @@
+{
+  "name": "content-pilot",
+  "version": "1.1.0",
+  "private": true,
+  "description": "A persistent content campaign planning agent with an observable tool loop.",
+  "type": "module",
+  "engines": {
+    "node": ">=22.9.0"
+  },
+  "scripts": {
+    "dev": "node --env-file-if-exists=.env src/server.js",
+    "start": "node --env-file-if-exists=.env src/server.js",
+    "test": "node --test tests/*.test.js",
+    "examples": "node scripts/generate-examples.js",
+    "evaluate:live": "node --env-file-if-exists=.env scripts/evaluate-live.js",
+    "verify:live": "node scripts/verify-live.js",
+    "report:live": "node scripts/report-live.js",
+    "submission:check": "node scripts/check-submission.js",
+    "verify": "npm test && npm run examples"
+  }
+}

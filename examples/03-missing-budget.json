@@ -1,0 +1,33 @@
+{
+  "disclosure": "Actual execution of deterministic offline Mock, not real LLM decision evidence.",
+  "input": {
+    "theme": "城市漫游 · 发现身边的美好",
+    "deadline": "2026-11-01T13:56:50.230Z",
+    "requestKey": "03-missing-budget"
+  },
+  "firstExecution": {
+    "id": "944d3f10-4e93-413b-b2b3-58c1543f5bf4",
+    "requestKey": "03-missing-budget",
+    "input": {
+      "theme": "城市漫游 · 发现身边的美好",
+      "deadline": "2026-11-01T13:56:50.230Z"
+    },
+    "maxSteps": 12,
+    "scenario": "normal",
+    "injection": null,
+    "mode": "mock",
+    "status": "needs_input",
+    "reason": "请填写大于 0 的有效预算",
+    "code": "missing_or_invalid_input",
+    "createdAt": "2026-10-31T13:56:50.230Z",
+    "updatedAt": "2026-10-31T13:56:50.230Z",
+    "attempts": 0,
+    "trace": [],
+    "results": {
+      "materials": [],
+      "scripts": [],
+      "estimates": [],
+      "plan": null
+    }
+  }
+}

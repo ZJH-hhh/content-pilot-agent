@@ -1,0 +1,52 @@
+
+> content-pilot@1.1.0 test
+> node --test tests/*.test.js
+
+✔ budget replan observes 12, selects 8, saves only a feasible plan (36.8633ms)
+✔ normal sufficient-budget path uses premium without unnecessary alternative (21.2623ms)
+✔ missing budget never calls model or tools (6.4747ms)
+✔ missing deadline never calls model or tools (5.382ms)
+✔ input rejects nonfinite budget, empty theme, past date, and ambiguous timezone (0.9515ms)
+✔ tool failure leads to a different material and preserves successful premium search (26.6408ms)
+✔ partially successful material search is not mistaken for usable assets (20.7396ms)
+✔ no affordable alternative stops with a concrete gap and no saved plan (25.7613ms)
+✔ deadline drives replan even when premium is affordable (26.6074ms)
+✔ no timely alternative stops with actual time shortfall (25.8172ms)
+✔ repeated request has the same id, trace count and production total (27.4325ms)
+✔ same idempotency key with different input is a conflict (7.3032ms)
+✔ save failure preserves results and resumes only the missing save (38.2948ms)
+✔ total tool-call cap includes failures and cannot be reset by resuming (19.6212ms)
+✔ unknown model actions stop safely with model_error (10.8405ms)
+✔ provider outage preserves state, never silently falls back to mock (10.8619ms)
+✔ dependency guards block missing material, missing script, and missing estimate (5.6082ms)
+✔ save tool independently blocks unaffordable plan despite model attempting save (6.4661ms)
+✔ save rechecks remaining deadline rather than trusting old feasible estimate (5.9404ms)
+✔ real adapter requires explicit credentials (0.617ms)
+✔ model timeout is bounded, configurable, and rejects invalid limits (0.9479ms)
+✔ theme retrieval ranks relevant product assets ahead of city assets (19.3672ms)
+✔ failed tool calls count toward the cap (12.8439ms)
+✔ concurrent run requests share one execution rather than duplicating steps (26.4834ms)
+✔ real adapter consumes each fresh observation via HTTP, with mock transport only (63.1255ms)
+✔ synthetic valid paths pass behavior checker without being presented as live records (91.1785ms)
+✔ a completed direct-lightweight path does not prove observing and changing an over-budget plan (30.2153ms)
+✔ completed task without a real failed step cannot pass the tool-failure case (29.6291ms)
+✔ offline mode and missing HTTP runtime metadata cannot count as real evidence (22.7639ms)
+✔ stale observations or modified earlier results invalidate observation digests (26.7477ms)
+✔ failed result relabeled as success is rejected even when final plan is completed (27.2561ms)
+✔ dropping successful premium results after replanning is rejected (29.7909ms)
+✔ fabricated final cost and detached plan ids are rejected (34.0065ms)
+✔ over-budget saved plans and changed deadlines are rejected (20.301ms)
+✔ missing or mixed evaluation runs fail the suite gate (70.8943ms)
+✔ unknown case and empty input report failed checks instead of passing (0.6093ms)
+✔ HTTP creates a real persisted task, exports it, and deduplicates concurrent requests (204.2268ms)
+✔ HTTP input errors, missing task and unknown route are explicit (48.9835ms)
+✔ web UI and catalog load without external dependencies or leaking configuration (31.8346ms)
+✔ server restart converts interrupted task to explicit resumable status (13.0182ms)
+ℹ tests 40
+ℹ suites 0
+ℹ pass 40
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 687.7225

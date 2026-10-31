@@ -1,0 +1,35 @@
+{
+  "confirmedByCandidate": true,
+  "candidateStatement": "本人负责全部功能，使用 AI 完成的内容也属于本人负责的实现范围。",
+  "declaredImplementationScope": "全部功能",
+  "attributionBoundary": "本人借助 AI 完成全部功能；代码生成、修改、命令运行和浏览器验证由 Codex 辅助执行。本人负责范围不等同于全部代码手写，也不把工具执行描述为本人手动执行。",
+  "knownUserParticipation": [
+    "在对话中提供项目需求与考核约束",
+    "明确要求压缩包交付，不关联远程仓库",
+    "提供审计报告并要求修订",
+    "在本地配置模型接口并通知配置完成",
+    "确认全部功能由本人借助 AI 完成，实际投入为 2 天",
+    "提供正式题号并授权创建 GitHub 仓库及上传项目"
+  ],
+  "codeModifications": [
+    "本人负责需求与整体功能实现，借助 Codex 实现 src 中的模型循环、业务工具、状态持久化与 HTTP API。",
+    "本人借助 Codex 完成 public 网页与交互、tests 验证、examples 记录、docs 文档及打包脚本。",
+    "本人提供审计报告并要求改进，借助 Codex 增加真实行为检查、质量优先提示、模型元数据与有界超时。"
+  ],
+  "personalVerifications": [],
+  "verificationStatement": "当前有记录的自动测试、HTTP 验证、浏览器交互和真实模型评估由 Codex 工具辅助执行；未另行声明本人手动重复运行。本人提供审计反馈并配置真实接口。",
+  "aiAssistedVerifications": [
+    "npm test：40 项通过；报告 examples/test-results.txt。",
+    "npm run examples：12 组实际离线记录。",
+    "npm run evaluate:live 与 npm run verify:live：最终正常、预算 12→8、工具失败后替代三场景通过；保留前两次未通过记录。",
+    "浏览器与 HTTP 链路验证，压缩包解压后复测，已记录到 examples。"
+  ],
+  "actualMinutes": null,
+  "actualDuration": { "value": 2, "unit": "days", "reportedText": "实际投入2天", "interpretation": "本人报告的项目投入跨度；未给出精确工作分钟数，不换算为连续48小时工时。" },
+  "unfinishedItems": [
+    "GitHub 上传、最终 SHA 及访问状态以 docs/submission.json 的最新结果为准。",
+    "尚无指定评审账号，不能确认私有仓库对评审可读。",
+    "生产级账户、队列、事务数据库、负载测试和真实视频制作不在当前实现范围。"
+  ],
+  "note": "本人已确认使用 AI 完成全部功能的负责范围与 2 天投入；AI 使用范围与执行证据如实保留。精确分钟数未提供，不能由 AI 工具会话时长代替。"
+}

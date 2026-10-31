@@ -1,0 +1,566 @@
+{
+  "schemaVersion": 2,
+  "evidenceSource": "live-api",
+  "runId": "2026-10-31T14-01-28-416Z-6457de30",
+  "case": "tool-failure",
+  "model": "gpt-6.1-sol",
+  "disclosure": "Live model execution; local synthetic business tools. Runtime metadata is not provider authenticity proof.",
+  "task": {
+    "id": "343130c1-7448-4b26-9fed-9579e378acb5",
+    "requestKey": "1711098e-7ec5-42c6-98ca-bf687fafd1ae",
+    "input": {
+      "theme": "城市漫游 · 发现身边的美好",
+      "budget": 10,
+      "deadline": "2026-11-01T14:02:53.677Z"
+    },
+    "maxSteps": 12,
+    "scenario": "tool_failure",
+    "injection": {
+      "tool": "generate_script",
+      "kind": "error",
+      "consumed": true
+    },
+    "mode": "openai",
+    "status": "completed",
+    "reason": "内容方案已保存，可导出完整方案。",
+    "code": null,
+    "createdAt": "2026-10-31T14:02:53.706Z",
+    "updatedAt": "2026-10-31T14:03:29.464Z",
+    "attempts": 1,
+    "trace": [
+      {
+        "kind": "tool",
+        "step": 1,
+        "tool": "search_materials",
+        "arguments": {
+          "tier": "premium"
+        },
+        "reason": "按质量优先策略先检索精选素材，再生成脚本并估算方案可行性。",
+        "modelDecision": {
+          "source": "openai-compatible-http",
+          "providerHost": "www.gohok.top",
+          "policyVersion": "quality-first-v2",
+          "systemPromptDigest": "e703d58c2a72063376abb1ac3717b1ce66d814c945e59cfc27b5b11a8cca4045",
+          "requestedModel": "gpt-6.1-sol",
+          "returnedModel": "gpt-6.1-sol",
+          "responseId": "resp_0f05294533668922016ae5f5117f1c87d0aa14184ada58087a",
+          "requestId": "8580038e-c25b-46a4-8dcb-4d7ae9668634, 0b4dce77-16d5-415e-93f0-77e3fbc8df84, aaa3adef-2142-4d4e-83a8-cfcbe5794cf7",
+          "httpStatus": 200,
+          "receivedAt": "2026-10-31T14:02:58.494Z",
+          "latencyMs": 4786,
+          "observationCount": 0,
+          "observationDigest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "usage": {
+            "promptTokens": 28139,
+            "completionTokens": 43,
+            "totalTokens": 28182
+          }
+        },
+        "at": "2026-10-31T14:02:58.494Z",
+        "result": {
+          "ok": true,
+          "materials": [
+            {
+              "id": "premium-city",
+              "tier": "premium",
+              "title": "城市漫游 · 电影感影像包",
+              "tags": [
+                "旅行",
+                "生活方式",
+                "城市"
+              ],
+              "description": "逆光街景、城市天际线、胶片转场与环境声的合成分镜素材。",
+              "licenseCost": 6,
+              "productionCost": 6,
+              "durationMinutes": 90,
+              "palette": "amber"
+            },
+            {
+              "id": "premium-studio",
+              "tier": "premium",
+              "title": "灵感实验室 · 创意影像包",
+              "tags": [
+                "品牌",
+                "科技",
+                "产品",
+                "新品",
+                "发布"
+              ],
+              "description": "产品特写、光影棚拍与创意字幕的合成分镜素材。",
+              "licenseCost": 6,
+              "productionCost": 6,
+              "durationMinutes": 90,
+              "palette": "violet"
+            }
+          ],
+          "summary": "找到 2 份精选合成素材"
+        },
+        "status": "success",
+        "summary": "找到 2 份精选合成素材"
+      },
+      {
+        "kind": "tool",
+        "step": 2,
+        "tool": "generate_script",
+        "arguments": {
+          "materialId": "premium-city"
+        },
+        "reason": "精选检索已成功，城市漫游素材与主题匹配，先生成脚本再估算可行性。",
+        "modelDecision": {
+          "source": "openai-compatible-http",
+          "providerHost": "www.gohok.top",
+          "policyVersion": "quality-first-v2",
+          "systemPromptDigest": "e703d58c2a72063376abb1ac3717b1ce66d814c945e59cfc27b5b11a8cca4045",
+          "requestedModel": "gpt-6.1-sol",
+          "returnedModel": "gpt-6.1-sol",
+          "responseId": "resp_05666ff44b67ae2f016ae5f5188bc087d2adce1702a32eed28",
+          "requestId": "5b67cf0d-07d5-41e6-ad7d-f3a7821ba5fc, ba696c08-d27f-48ee-9a2c-9aee16a70934, 83b40eca-f6f9-48a2-9cf9-44cf52274bce",
+          "httpStatus": 200,
+          "receivedAt": "2026-10-31T14:03:05.937Z",
+          "latencyMs": 7441,
+          "observationCount": 1,
+          "observationDigest": "3d2084f078c1e52d3c3d9f6d228ce2bf739e68580293d219334c705e24fc1a4d",
+          "usage": {
+            "promptTokens": 28860,
+            "completionTokens": 48,
+            "totalTokens": 28908
+          }
+        },
+        "at": "2026-10-31T14:03:05.937Z",
+        "status": "failed",
+        "result": {
+          "ok": false,
+          "error": "模拟服务暂时不可用（仅注入一次）"
+        },
+        "summary": "模拟服务暂时不可用（仅注入一次）"
+      },
+      {
+        "kind": "tool",
+        "step": 3,
+        "tool": "search_materials",
+        "arguments": {
+          "tier": "standard"
+        },
+        "reason": "精选脚本生成服务暂时不可用，按规则切换轻量素材并重新规划。",
+        "modelDecision": {
+          "source": "openai-compatible-http",
+          "providerHost": "www.gohok.top",
+          "policyVersion": "quality-first-v2",
+          "systemPromptDigest": "e703d58c2a72063376abb1ac3717b1ce66d814c945e59cfc27b5b11a8cca4045",
+          "requestedModel": "gpt-6.1-sol",
+          "returnedModel": "gpt-6.1-sol",
+          "responseId": "resp_0563c0703e0586e1016ae5f51d1cb88195a780380fcca6ff60",
+          "requestId": "421f7664-86a8-4a7a-8d9b-4725ea359e5a, a267536a-083c-459f-b2b3-c0085f53f0f5, a57dbe94-321a-4ab8-84d2-2ba90f2d9b16, 4763fc50dc6f6aa497e06dab028861fb",
+          "httpStatus": 200,
+          "receivedAt": "2026-10-31T14:03:13.893Z",
+          "latencyMs": 7950,
+          "observationCount": 2,
+          "observationDigest": "f4ce304ab33fc183b4f3e57759a7d6470662c5f483273e00fd41b3716ad6912e",
+          "usage": {
+            "promptTokens": 6827,
+            "completionTokens": 88,
+            "totalTokens": 6915
+          }
+        },
+        "at": "2026-10-31T14:03:13.893Z",
+        "result": {
+          "ok": true,
+          "materials": [
+            {
+              "id": "standard-daily",
+              "tier": "standard",
+              "title": "日常切片 · 轻量叙事素材",
+              "tags": [
+                "通用",
+                "生活",
+                "旅行"
+              ],
+              "description": "手机竖屏、自然光场景与原创文字卡片的合成分镜素材。",
+              "licenseCost": 2,
+              "productionCost": 6,
+              "durationMinutes": 45,
+              "palette": "green"
+            }
+          ],
+          "summary": "找到 1 份轻量合成素材"
+        },
+        "status": "success",
+        "summary": "找到 1 份轻量合成素材"
+      },
+      {
+        "kind": "tool",
+        "step": 4,
+        "tool": "generate_script",
+        "arguments": {
+          "materialId": "standard-daily"
+        },
+        "reason": "精选脚本生成失败后已成功检索轻量素材，现生成对应脚本以便重新估算方案可行性。",
+        "modelDecision": {
+          "source": "openai-compatible-http",
+          "providerHost": "www.gohok.top",
+          "policyVersion": "quality-first-v2",
+          "systemPromptDigest": "e703d58c2a72063376abb1ac3717b1ce66d814c945e59cfc27b5b11a8cca4045",
+          "requestedModel": "gpt-6.1-sol",
+          "returnedModel": "gpt-6.1-sol",
+          "responseId": "resp_030877df445b19c5016ae5f524e4f08197acbe15652ba0e8f5",
+          "requestId": "97e18f36-f0df-4873-9633-082828c4dda4",
+          "httpStatus": 200,
+          "receivedAt": "2026-10-31T14:03:18.421Z",
+          "latencyMs": 4523,
+          "observationCount": 3,
+          "observationDigest": "12070bf551ca6607f2f0d25c0c315bcf1fef51dc98ae509b6ace5c290f0b0d83",
+          "usage": {
+            "promptTokens": 7410,
+            "completionTokens": 55,
+            "totalTokens": 7465
+          }
+        },
+        "at": "2026-10-31T14:03:18.421Z",
+        "result": {
+          "ok": true,
+          "script": {
+            "id": "script-standard-daily",
+            "materialId": "standard-daily",
+            "title": "城市漫游 · 发现身边的美好｜把灵感变成下一次出发",
+            "format": "9:16 竖屏 · 30 秒",
+            "channel": "小红书 / 抖音",
+            "scenes": [
+              {
+                "time": "00–05s",
+                "title": "用一个问题，打开故事",
+                "visual": "手机竖屏，大字字幕入场。",
+                "narration": "如果给「城市漫游 · 发现身边的美好」30 秒，你会从哪里开始？"
+              },
+              {
+                "time": "05–15s",
+                "title": "让细节成为记忆点",
+                "visual": "三组细节特写，以节奏切换画面；叠加关键词。",
+                "narration": "从一个小小的发现，到值得记录的瞬间。让普通的一天，多一点新鲜。"
+              },
+              {
+                "time": "15–25s",
+                "title": "把灵感变成行动",
+                "visual": "主画面与原创文字卡交替，呈现主题亮点。",
+                "narration": "这次，用自己的方式体验城市漫游 · 发现身边的美好。故事的主角，就是你。"
+              },
+              {
+                "time": "25–30s",
+                "title": "留一个参与的入口",
+                "visual": "主题标题定格，出现互动问题与收藏提示。",
+                "narration": "你最想记录哪个瞬间？评论区一起分享。"
+              }
+            ],
+            "caption": "生活的灵感，藏在每一次认真观察里。一起开启「城市漫游 · 发现身边的美好」，收藏这份小小的出发指南。",
+            "hashtags": [
+              "#灵感日常",
+              "#记录生活",
+              "#城市漫游·发现身边的美好"
+            ],
+            "source": "template",
+            "disclosure": "脚本工具使用原创本地模板；真实模型负责工具选择，不负责脚本文案生成。"
+          },
+          "summary": "已生成 4 段分镜脚本 · 9:16 竖屏 · 30 秒"
+        },
+        "status": "success",
+        "summary": "已生成 4 段分镜脚本 · 9:16 竖屏 · 30 秒"
+      },
+      {
+        "kind": "tool",
+        "step": 5,
+        "tool": "estimate_plan",
+        "arguments": {
+          "scriptId": "script-standard-daily"
+        },
+        "reason": "轻量素材对应脚本已成功生成，需估算预算与截止时间可行性后才能保存。",
+        "modelDecision": {
+          "source": "openai-compatible-http",
+          "providerHost": "www.gohok.top",
+          "policyVersion": "quality-first-v2",
+          "systemPromptDigest": "e703d58c2a72063376abb1ac3717b1ce66d814c945e59cfc27b5b11a8cca4045",
+          "requestedModel": "gpt-6.1-sol",
+          "returnedModel": "gpt-6.1-sol",
+          "responseId": "resp_09c54d5f219e17ec016ae5f529d06c87d2a0e54f3eb57cbd0a",
+          "requestId": "54b967cc-eda8-4e12-b202-9c19161e0c52, bf49410e-8400-4c26-94f6-e076ac19bcd1, req_1793455400847124719_124948",
+          "httpStatus": 200,
+          "receivedAt": "2026-10-31T14:03:25.623Z",
+          "latencyMs": 7200,
+          "observationCount": 4,
+          "observationDigest": "fac734322796f7c37268588b22c347d7639e4eecf6f8c39c94a85f97907bfbc9",
+          "usage": {
+            "promptTokens": 3681,
+            "completionTokens": 51,
+            "totalTokens": 3732
+          }
+        },
+        "at": "2026-10-31T14:03:25.623Z",
+        "result": {
+          "ok": true,
+          "estimate": {
+            "id": "estimate-script-standard-daily",
+            "scriptId": "script-standard-daily",
+            "materialId": "standard-daily",
+            "items": [
+              {
+                "name": "素材授权",
+                "amount": 2
+              },
+              {
+                "name": "内容制作",
+                "amount": 6
+              }
+            ],
+            "total": 8,
+            "durationMinutes": 45,
+            "availableMinutes": 1439,
+            "budgetGap": 0,
+            "timeGapMinutes": 0,
+            "feasible": true,
+            "evaluatedAt": "2026-10-31T14:03:25.623Z"
+          },
+          "summary": "预计 8 单位 / 45 分钟；满足预算与截止时间"
+        },
+        "status": "success",
+        "summary": "预计 8 单位 / 45 分钟；满足预算与截止时间"
+      },
+      {
+        "kind": "tool",
+        "step": 6,
+        "tool": "save_plan",
+        "arguments": {
+          "estimateId": "estimate-script-standard-daily"
+        },
+        "reason": "轻量方案已通过估算，预计制作成本8单位、耗时45分钟，满足预算10单位与截止时间要求，现保存方案。",
+        "modelDecision": {
+          "source": "openai-compatible-http",
+          "providerHost": "www.gohok.top",
+          "policyVersion": "quality-first-v2",
+          "systemPromptDigest": "e703d58c2a72063376abb1ac3717b1ce66d814c945e59cfc27b5b11a8cca4045",
+          "requestedModel": "gpt-6.1-sol",
+          "returnedModel": "gpt-6.1-sol",
+          "responseId": "resp_0c7abf2e2a716c8a016ae5f52feef88198b5ecd09594e23016",
+          "requestId": "cc865a06-4437-41ee-8ca5-26e8e79d886d, 31cb8083-cdef-4c25-964a-6238bbe6db2b, 1f7dc926-bfee-4a18-92d1-9cabb555ac68",
+          "httpStatus": 200,
+          "receivedAt": "2026-10-31T14:03:29.462Z",
+          "latencyMs": 3838,
+          "observationCount": 5,
+          "observationDigest": "d1eacaa424c4d58ddf214192bee5faba3763d4dd06b62bfe1da57411fc6d5f17",
+          "usage": {
+            "promptTokens": 9200,
+            "completionTokens": 60,
+            "totalTokens": 9260
+          }
+        },
+        "at": "2026-10-31T14:03:29.462Z",
+        "result": {
+          "ok": true,
+          "planId": "plan-343130c1-7448-4b26-9fed-9579e378acb5",
+          "total": 8,
+          "summary": "方案已保存，预计制作费用 8 模拟单位"
+        },
+        "status": "success",
+        "summary": "方案已保存，预计制作费用 8 模拟单位"
+      }
+    ],
+    "results": {
+      "materials": [
+        {
+          "id": "premium-city",
+          "tier": "premium",
+          "title": "城市漫游 · 电影感影像包",
+          "tags": [
+            "旅行",
+            "生活方式",
+            "城市"
+          ],
+          "description": "逆光街景、城市天际线、胶片转场与环境声的合成分镜素材。",
+          "licenseCost": 6,
+          "productionCost": 6,
+          "durationMinutes": 90,
+          "palette": "amber"
+        },
+        {
+          "id": "premium-studio",
+          "tier": "premium",
+          "title": "灵感实验室 · 创意影像包",
+          "tags": [
+            "品牌",
+            "科技",
+            "产品",
+            "新品",
+            "发布"
+          ],
+          "description": "产品特写、光影棚拍与创意字幕的合成分镜素材。",
+          "licenseCost": 6,
+          "productionCost": 6,
+          "durationMinutes": 90,
+          "palette": "violet"
+        },
+        {
+          "id": "standard-daily",
+          "tier": "standard",
+          "title": "日常切片 · 轻量叙事素材",
+          "tags": [
+            "通用",
+            "生活",
+            "旅行"
+          ],
+          "description": "手机竖屏、自然光场景与原创文字卡片的合成分镜素材。",
+          "licenseCost": 2,
+          "productionCost": 6,
+          "durationMinutes": 45,
+          "palette": "green"
+        }
+      ],
+      "scripts": [
+        {
+          "id": "script-standard-daily",
+          "materialId": "standard-daily",
+          "title": "城市漫游 · 发现身边的美好｜把灵感变成下一次出发",
+          "format": "9:16 竖屏 · 30 秒",
+          "channel": "小红书 / 抖音",
+          "scenes": [
+            {
+              "time": "00–05s",
+              "title": "用一个问题，打开故事",
+              "visual": "手机竖屏，大字字幕入场。",
+              "narration": "如果给「城市漫游 · 发现身边的美好」30 秒，你会从哪里开始？"
+            },
+            {
+              "time": "05–15s",
+              "title": "让细节成为记忆点",
+              "visual": "三组细节特写，以节奏切换画面；叠加关键词。",
+              "narration": "从一个小小的发现，到值得记录的瞬间。让普通的一天，多一点新鲜。"
+            },
+            {
+              "time": "15–25s",
+              "title": "把灵感变成行动",
+              "visual": "主画面与原创文字卡交替，呈现主题亮点。",
+              "narration": "这次，用自己的方式体验城市漫游 · 发现身边的美好。故事的主角，就是你。"
+            },
+            {
+              "time": "25–30s",
+              "title": "留一个参与的入口",
+              "visual": "主题标题定格，出现互动问题与收藏提示。",
+              "narration": "你最想记录哪个瞬间？评论区一起分享。"
+            }
+          ],
+          "caption": "生活的灵感，藏在每一次认真观察里。一起开启「城市漫游 · 发现身边的美好」，收藏这份小小的出发指南。",
+          "hashtags": [
+            "#灵感日常",
+            "#记录生活",
+            "#城市漫游·发现身边的美好"
+          ],
+          "source": "template",
+          "disclosure": "脚本工具使用原创本地模板；真实模型负责工具选择，不负责脚本文案生成。"
+        }
+      ],
+      "estimates": [
+        {
+          "id": "estimate-script-standard-daily",
+          "scriptId": "script-standard-daily",
+          "materialId": "standard-daily",
+          "items": [
+            {
+              "name": "素材授权",
+              "amount": 2
+            },
+            {
+              "name": "内容制作",
+              "amount": 6
+            }
+          ],
+          "total": 8,
+          "durationMinutes": 45,
+          "availableMinutes": 1439,
+          "budgetGap": 0,
+          "timeGapMinutes": 0,
+          "feasible": true,
+          "evaluatedAt": "2026-10-31T14:03:25.623Z"
+        }
+      ],
+      "plan": {
+        "id": "plan-343130c1-7448-4b26-9fed-9579e378acb5",
+        "title": "城市漫游 · 发现身边的美好",
+        "material": {
+          "id": "standard-daily",
+          "tier": "standard",
+          "title": "日常切片 · 轻量叙事素材",
+          "tags": [
+            "通用",
+            "生活",
+            "旅行"
+          ],
+          "description": "手机竖屏、自然光场景与原创文字卡片的合成分镜素材。",
+          "licenseCost": 2,
+          "productionCost": 6,
+          "durationMinutes": 45,
+          "palette": "green"
+        },
+        "script": {
+          "id": "script-standard-daily",
+          "materialId": "standard-daily",
+          "title": "城市漫游 · 发现身边的美好｜把灵感变成下一次出发",
+          "format": "9:16 竖屏 · 30 秒",
+          "channel": "小红书 / 抖音",
+          "scenes": [
+            {
+              "time": "00–05s",
+              "title": "用一个问题，打开故事",
+              "visual": "手机竖屏，大字字幕入场。",
+              "narration": "如果给「城市漫游 · 发现身边的美好」30 秒，你会从哪里开始？"
+            },
+            {
+              "time": "05–15s",
+              "title": "让细节成为记忆点",
+              "visual": "三组细节特写，以节奏切换画面；叠加关键词。",
+              "narration": "从一个小小的发现，到值得记录的瞬间。让普通的一天，多一点新鲜。"
+            },
+            {
+              "time": "15–25s",
+              "title": "把灵感变成行动",
+              "visual": "主画面与原创文字卡交替，呈现主题亮点。",
+              "narration": "这次，用自己的方式体验城市漫游 · 发现身边的美好。故事的主角，就是你。"
+            },
+            {
+              "time": "25–30s",
+              "title": "留一个参与的入口",
+              "visual": "主题标题定格，出现互动问题与收藏提示。",
+              "narration": "你最想记录哪个瞬间？评论区一起分享。"
+            }
+          ],
+          "caption": "生活的灵感，藏在每一次认真观察里。一起开启「城市漫游 · 发现身边的美好」，收藏这份小小的出发指南。",
+          "hashtags": [
+            "#灵感日常",
+            "#记录生活",
+            "#城市漫游·发现身边的美好"
+          ],
+          "source": "template",
+          "disclosure": "脚本工具使用原创本地模板；真实模型负责工具选择，不负责脚本文案生成。"
+        },
+        "estimate": {
+          "id": "estimate-script-standard-daily",
+          "scriptId": "script-standard-daily",
+          "materialId": "standard-daily",
+          "items": [
+            {
+              "name": "素材授权",
+              "amount": 2
+            },
+            {
+              "name": "内容制作",
+              "amount": 6
+            }
+          ],
+          "total": 8,
+          "durationMinutes": 45,
+          "availableMinutes": 1439,
+          "budgetGap": 0,
+          "timeGapMinutes": 0,
+          "feasible": true,
+          "evaluatedAt": "2026-10-31T14:03:25.623Z"
+        },
+        "savedAt": "2026-10-31T14:03:29.462Z"
+      }
+    }
+  }
+}

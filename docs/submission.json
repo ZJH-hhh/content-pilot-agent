@@ -1,0 +1,18 @@
+{
+  "topicName": "内容任务规划 Agent",
+  "topicNumber": "2",
+  "deliveryFormat": "github-and-zip",
+  "remotePublishingRequested": true,
+  "github": {
+    "url": "https://github.com/ZJH-hhh/content-pilot-agent",
+    "commitSha": null,
+    "commitShaSource": "git-head",
+    "reviewerAccessConfirmed": false,
+    "requestedVisibility": "private",
+    "reviewerAccount": null,
+    "visibility": "private",
+    "repositoryCreated": true,
+    "uploadVerified": false
+  },
+  "note": "正式题号2；已创建私有仓库，等待上传核对。本人尚无指定评审账号，因此 reviewerAccessConfirmed 保持 false。"
+}

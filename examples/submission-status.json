@@ -1,0 +1,23 @@
+{
+  "checkedAt": "2026-10-31T15:07:25.996Z",
+  "deliveryFormat": "github-and-zip",
+  "liveModel": {
+    "passed": true,
+    "runId": "2026-10-31T14-04-34-911Z-27e70588",
+    "detail": "三条真实接口路径的一致性与行为检查通过；仍建议人工复核公开决策依据。"
+  },
+  "github": {
+    "passed": false,
+    "url": "https://github.com/ZJH-hhh/content-pilot-agent",
+    "commitSha": null,
+    "reviewerAccessConfirmed": false,
+    "verification": "SHA 从当前仓库 HEAD 或静态交付字段读取；远程 SHA、仓库可读性与评审访问应分别核实。",
+    "detail": "已授权创建上传；仓库 URL、最终 SHA 或评审访问仍有未完成项。"
+  },
+  "personalDisclosure": {
+    "passed": true,
+    "verification": "本人事实声明；明确区分 AI 辅助与本人手动验证。",
+    "detail": "本人已确认借助 AI 实现全部功能、投入 2 天；验证执行方式与未完成项已披露。"
+  },
+  "formalSubmissionComplete": false
+}

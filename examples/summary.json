@@ -1,0 +1,102 @@
+{
+  "generatedAt": "2026-10-31T13:56:50.507Z",
+  "mode": "mock",
+  "results": [
+    {
+      "case": "01-normal",
+      "initialStatus": "completed",
+      "finalStatus": "completed",
+      "finalCost": 12,
+      "toolCalls": 4,
+      "code": null
+    },
+    {
+      "case": "02-budget-replan",
+      "initialStatus": "completed",
+      "finalStatus": "completed",
+      "finalCost": 8,
+      "toolCalls": 7,
+      "code": null
+    },
+    {
+      "case": "03-missing-budget",
+      "initialStatus": "needs_input",
+      "finalStatus": "needs_input",
+      "finalCost": null,
+      "toolCalls": 0,
+      "code": "missing_or_invalid_input"
+    },
+    {
+      "case": "04-missing-deadline",
+      "initialStatus": "needs_input",
+      "finalStatus": "needs_input",
+      "finalCost": null,
+      "toolCalls": 0,
+      "code": "missing_or_invalid_input"
+    },
+    {
+      "case": "05-tool-failure",
+      "initialStatus": "completed",
+      "finalStatus": "completed",
+      "finalCost": 8,
+      "toolCalls": 6,
+      "code": null
+    },
+    {
+      "case": "06-budget-infeasible",
+      "initialStatus": "incomplete",
+      "finalStatus": "incomplete",
+      "finalCost": null,
+      "toolCalls": 6,
+      "code": "budget_exceeded"
+    },
+    {
+      "case": "07-partial-result",
+      "initialStatus": "completed",
+      "finalStatus": "completed",
+      "finalCost": 8,
+      "toolCalls": 5,
+      "code": null
+    },
+    {
+      "case": "08-save-failure-resume",
+      "initialStatus": "incomplete",
+      "finalStatus": "completed",
+      "finalCost": 8,
+      "toolCalls": 8,
+      "code": null
+    },
+    {
+      "case": "09-step-limit",
+      "initialStatus": "incomplete",
+      "finalStatus": "incomplete",
+      "finalCost": null,
+      "toolCalls": 3,
+      "code": "step_limit"
+    },
+    {
+      "case": "10-deadline-replan",
+      "initialStatus": "completed",
+      "finalStatus": "completed",
+      "finalCost": 8,
+      "toolCalls": 7,
+      "code": null
+    },
+    {
+      "case": "11-deadline-infeasible",
+      "initialStatus": "incomplete",
+      "finalStatus": "incomplete",
+      "finalCost": null,
+      "toolCalls": 6,
+      "code": "deadline_exceeded"
+    },
+    {
+      "case": "12-idempotency",
+      "initialStatus": "completed",
+      "finalStatus": "completed",
+      "finalCost": 8,
+      "toolCalls": 7,
+      "code": null
+    }
+  ]
+}

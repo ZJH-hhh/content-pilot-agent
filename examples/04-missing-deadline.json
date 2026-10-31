@@ -1,0 +1,33 @@
+{
+  "disclosure": "Actual execution of deterministic offline Mock, not real LLM decision evidence.",
+  "input": {
+    "theme": "城市漫游 · 发现身边的美好",
+    "budget": 10,
+    "requestKey": "04-missing-deadline"
+  },
+  "firstExecution": {
+    "id": "571c3001-347c-4eb2-b53f-051e7f4b9d57",
+    "requestKey": "04-missing-deadline",
+    "input": {
+      "theme": "城市漫游 · 发现身边的美好",
+      "budget": 10
+    },
+    "maxSteps": 12,
+    "scenario": "normal",
+    "injection": null,
+    "mode": "mock",
+    "status": "needs_input",
+    "reason": "请填写包含时区的截止时间",
+    "code": "missing_or_invalid_input",
+    "createdAt": "2026-10-31T13:56:50.230Z",
+    "updatedAt": "2026-10-31T13:56:50.230Z",
+    "attempts": 0,
+    "trace": [],
+    "results": {
+      "materials": [],
+      "scripts": [],
+      "estimates": [],
+      "plan": null
+    }
+  }
+}

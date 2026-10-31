@@ -1,0 +1,448 @@
+{
+  "disclosure": "Actual execution of deterministic offline Mock, not real LLM decision evidence.",
+  "input": {
+    "theme": "城市漫游 · 发现身边的美好",
+    "budget": 10,
+    "deadline": "2026-11-01T13:56:50.230Z",
+    "requestKey": "05-tool-failure",
+    "scenario": "tool_failure"
+  },
+  "firstExecution": {
+    "id": "ff99ca56-6854-4c82-b619-21187d94e468",
+    "requestKey": "05-tool-failure",
+    "input": {
+      "theme": "城市漫游 · 发现身边的美好",
+      "budget": 10,
+      "deadline": "2026-11-01T13:56:50.230Z"
+    },
+    "maxSteps": 12,
+    "scenario": "tool_failure",
+    "injection": {
+      "tool": "generate_script",
+      "kind": "error",
+      "consumed": true
+    },
+    "mode": "mock",
+    "status": "completed",
+    "reason": "内容方案已保存，可导出完整方案。",
+    "code": null,
+    "createdAt": "2026-10-31T13:56:50.230Z",
+    "updatedAt": "2026-10-31T13:56:50.230Z",
+    "attempts": 1,
+    "trace": [
+      {
+        "kind": "tool",
+        "step": 1,
+        "tool": "search_materials",
+        "arguments": {
+          "tier": "premium"
+        },
+        "reason": "优先检索高表现力素材，先确认质量和资源。",
+        "at": "2026-10-31T13:56:50.230Z",
+        "result": {
+          "ok": true,
+          "materials": [
+            {
+              "id": "premium-city",
+              "tier": "premium",
+              "title": "城市漫游 · 电影感影像包",
+              "tags": [
+                "旅行",
+                "生活方式",
+                "城市"
+              ],
+              "description": "逆光街景、城市天际线、胶片转场与环境声的合成分镜素材。",
+              "licenseCost": 6,
+              "productionCost": 6,
+              "durationMinutes": 90,
+              "palette": "amber"
+            },
+            {
+              "id": "premium-studio",
+              "tier": "premium",
+              "title": "灵感实验室 · 创意影像包",
+              "tags": [
+                "品牌",
+                "科技",
+                "产品",
+                "新品",
+                "发布"
+              ],
+              "description": "产品特写、光影棚拍与创意字幕的合成分镜素材。",
+              "licenseCost": 6,
+              "productionCost": 6,
+              "durationMinutes": 90,
+              "palette": "violet"
+            }
+          ],
+          "summary": "找到 2 份精选合成素材"
+        },
+        "status": "success",
+        "summary": "找到 2 份精选合成素材"
+      },
+      {
+        "kind": "tool",
+        "step": 2,
+        "tool": "generate_script",
+        "arguments": {
+          "materialId": "premium-city"
+        },
+        "reason": "素材可用，生成对应的内容脚本。",
+        "at": "2026-10-31T13:56:50.230Z",
+        "status": "failed",
+        "result": {
+          "ok": false,
+          "error": "模拟服务暂时不可用（仅注入一次）"
+        },
+        "summary": "模拟服务暂时不可用（仅注入一次）"
+      },
+      {
+        "kind": "tool",
+        "step": 3,
+        "tool": "search_materials",
+        "arguments": {
+          "tier": "standard"
+        },
+        "reason": "观察到原方案超预算、超时或工具异常，改用轻量素材。",
+        "at": "2026-10-31T13:56:50.230Z",
+        "result": {
+          "ok": true,
+          "materials": [
+            {
+              "id": "standard-daily",
+              "tier": "standard",
+              "title": "日常切片 · 轻量叙事素材",
+              "tags": [
+                "通用",
+                "生活",
+                "旅行"
+              ],
+              "description": "手机竖屏、自然光场景与原创文字卡片的合成分镜素材。",
+              "licenseCost": 2,
+              "productionCost": 6,
+              "durationMinutes": 45,
+              "palette": "green"
+            }
+          ],
+          "summary": "找到 1 份轻量合成素材"
+        },
+        "status": "success",
+        "summary": "找到 1 份轻量合成素材"
+      },
+      {
+        "kind": "tool",
+        "step": 4,
+        "tool": "generate_script",
+        "arguments": {
+          "materialId": "standard-daily"
+        },
+        "reason": "素材可用，生成对应的内容脚本。",
+        "at": "2026-10-31T13:56:50.230Z",
+        "result": {
+          "ok": true,
+          "script": {
+            "id": "script-standard-daily",
+            "materialId": "standard-daily",
+            "title": "城市漫游 · 发现身边的美好｜把灵感变成下一次出发",
+            "format": "9:16 竖屏 · 30 秒",
+            "channel": "小红书 / 抖音",
+            "scenes": [
+              {
+                "time": "00–05s",
+                "title": "用一个问题，打开故事",
+                "visual": "手机竖屏，大字字幕入场。",
+                "narration": "如果给「城市漫游 · 发现身边的美好」30 秒，你会从哪里开始？"
+              },
+              {
+                "time": "05–15s",
+                "title": "让细节成为记忆点",
+                "visual": "三组细节特写，以节奏切换画面；叠加关键词。",
+                "narration": "从一个小小的发现，到值得记录的瞬间。让普通的一天，多一点新鲜。"
+              },
+              {
+                "time": "15–25s",
+                "title": "把灵感变成行动",
+                "visual": "主画面与原创文字卡交替，呈现主题亮点。",
+                "narration": "这次，用自己的方式体验城市漫游 · 发现身边的美好。故事的主角，就是你。"
+              },
+              {
+                "time": "25–30s",
+                "title": "留一个参与的入口",
+                "visual": "主题标题定格，出现互动问题与收藏提示。",
+                "narration": "你最想记录哪个瞬间？评论区一起分享。"
+              }
+            ],
+            "caption": "生活的灵感，藏在每一次认真观察里。一起开启「城市漫游 · 发现身边的美好」，收藏这份小小的出发指南。",
+            "hashtags": [
+              "#灵感日常",
+              "#记录生活",
+              "#城市漫游·发现身边的美好"
+            ],
+            "source": "template",
+            "disclosure": "脚本工具使用原创本地模板；真实模型负责工具选择，不负责脚本文案生成。"
+          },
+          "summary": "已生成 4 段分镜脚本 · 9:16 竖屏 · 30 秒"
+        },
+        "status": "success",
+        "summary": "已生成 4 段分镜脚本 · 9:16 竖屏 · 30 秒"
+      },
+      {
+        "kind": "tool",
+        "step": 5,
+        "tool": "estimate_plan",
+        "arguments": {
+          "scriptId": "script-standard-daily"
+        },
+        "reason": "脚本已完成，核验素材授权、制作成本与剩余时间。",
+        "at": "2026-10-31T13:56:50.230Z",
+        "result": {
+          "ok": true,
+          "estimate": {
+            "id": "estimate-script-standard-daily",
+            "scriptId": "script-standard-daily",
+            "materialId": "standard-daily",
+            "items": [
+              {
+                "name": "素材授权",
+                "amount": 2
+              },
+              {
+                "name": "内容制作",
+                "amount": 6
+              }
+            ],
+            "total": 8,
+            "durationMinutes": 45,
+            "availableMinutes": 1440,
+            "budgetGap": 0,
+            "timeGapMinutes": 0,
+            "feasible": true,
+            "evaluatedAt": "2026-10-31T13:56:50.230Z"
+          },
+          "summary": "预计 8 单位 / 45 分钟；满足预算与截止时间"
+        },
+        "status": "success",
+        "summary": "预计 8 单位 / 45 分钟；满足预算与截止时间"
+      },
+      {
+        "kind": "tool",
+        "step": 6,
+        "tool": "save_plan",
+        "arguments": {
+          "estimateId": "estimate-script-standard-daily"
+        },
+        "reason": "预算与时间均满足要求，保存已验证方案。",
+        "at": "2026-10-31T13:56:50.230Z",
+        "result": {
+          "ok": true,
+          "planId": "plan-ff99ca56-6854-4c82-b619-21187d94e468",
+          "total": 8,
+          "summary": "方案已保存，预计制作费用 8 模拟单位"
+        },
+        "status": "success",
+        "summary": "方案已保存，预计制作费用 8 模拟单位"
+      }
+    ],
+    "results": {
+      "materials": [
+        {
+          "id": "premium-city",
+          "tier": "premium",
+          "title": "城市漫游 · 电影感影像包",
+          "tags": [
+            "旅行",
+            "生活方式",
+            "城市"
+          ],
+          "description": "逆光街景、城市天际线、胶片转场与环境声的合成分镜素材。",
+          "licenseCost": 6,
+          "productionCost": 6,
+          "durationMinutes": 90,
+          "palette": "amber"
+        },
+        {
+          "id": "premium-studio",
+          "tier": "premium",
+          "title": "灵感实验室 · 创意影像包",
+          "tags": [
+            "品牌",
+            "科技",
+            "产品",
+            "新品",
+            "发布"
+          ],
+          "description": "产品特写、光影棚拍与创意字幕的合成分镜素材。",
+          "licenseCost": 6,
+          "productionCost": 6,
+          "durationMinutes": 90,
+          "palette": "violet"
+        },
+        {
+          "id": "standard-daily",
+          "tier": "standard",
+          "title": "日常切片 · 轻量叙事素材",
+          "tags": [
+            "通用",
+            "生活",
+            "旅行"
+          ],
+          "description": "手机竖屏、自然光场景与原创文字卡片的合成分镜素材。",
+          "licenseCost": 2,
+          "productionCost": 6,
+          "durationMinutes": 45,
+          "palette": "green"
+        }
+      ],
+      "scripts": [
+        {
+          "id": "script-standard-daily",
+          "materialId": "standard-daily",
+          "title": "城市漫游 · 发现身边的美好｜把灵感变成下一次出发",
+          "format": "9:16 竖屏 · 30 秒",
+          "channel": "小红书 / 抖音",
+          "scenes": [
+            {
+              "time": "00–05s",
+              "title": "用一个问题，打开故事",
+              "visual": "手机竖屏，大字字幕入场。",
+              "narration": "如果给「城市漫游 · 发现身边的美好」30 秒，你会从哪里开始？"
+            },
+            {
+              "time": "05–15s",
+              "title": "让细节成为记忆点",
+              "visual": "三组细节特写，以节奏切换画面；叠加关键词。",
+              "narration": "从一个小小的发现，到值得记录的瞬间。让普通的一天，多一点新鲜。"
+            },
+            {
+              "time": "15–25s",
+              "title": "把灵感变成行动",
+              "visual": "主画面与原创文字卡交替，呈现主题亮点。",
+              "narration": "这次，用自己的方式体验城市漫游 · 发现身边的美好。故事的主角，就是你。"
+            },
+            {
+              "time": "25–30s",
+              "title": "留一个参与的入口",
+              "visual": "主题标题定格，出现互动问题与收藏提示。",
+              "narration": "你最想记录哪个瞬间？评论区一起分享。"
+            }
+          ],
+          "caption": "生活的灵感，藏在每一次认真观察里。一起开启「城市漫游 · 发现身边的美好」，收藏这份小小的出发指南。",
+          "hashtags": [
+            "#灵感日常",
+            "#记录生活",
+            "#城市漫游·发现身边的美好"
+          ],
+          "source": "template",
+          "disclosure": "脚本工具使用原创本地模板；真实模型负责工具选择，不负责脚本文案生成。"
+        }
+      ],
+      "estimates": [
+        {
+          "id": "estimate-script-standard-daily",
+          "scriptId": "script-standard-daily",
+          "materialId": "standard-daily",
+          "items": [
+            {
+              "name": "素材授权",
+              "amount": 2
+            },
+            {
+              "name": "内容制作",
+              "amount": 6
+            }
+          ],
+          "total": 8,
+          "durationMinutes": 45,
+          "availableMinutes": 1440,
+          "budgetGap": 0,
+          "timeGapMinutes": 0,
+          "feasible": true,
+          "evaluatedAt": "2026-10-31T13:56:50.230Z"
+        }
+      ],
+      "plan": {
+        "id": "plan-ff99ca56-6854-4c82-b619-21187d94e468",
+        "title": "城市漫游 · 发现身边的美好",
+        "material": {
+          "id": "standard-daily",
+          "tier": "standard",
+          "title": "日常切片 · 轻量叙事素材",
+          "tags": [
+            "通用",
+            "生活",
+            "旅行"
+          ],
+          "description": "手机竖屏、自然光场景与原创文字卡片的合成分镜素材。",
+          "licenseCost": 2,
+          "productionCost": 6,
+          "durationMinutes": 45,
+          "palette": "green"
+        },
+        "script": {
+          "id": "script-standard-daily",
+          "materialId": "standard-daily",
+          "title": "城市漫游 · 发现身边的美好｜把灵感变成下一次出发",
+          "format": "9:16 竖屏 · 30 秒",
+          "channel": "小红书 / 抖音",
+          "scenes": [
+            {
+              "time": "00–05s",
+              "title": "用一个问题，打开故事",
+              "visual": "手机竖屏，大字字幕入场。",
+              "narration": "如果给「城市漫游 · 发现身边的美好」30 秒，你会从哪里开始？"
+            },
+            {
+              "time": "05–15s",
+              "title": "让细节成为记忆点",
+              "visual": "三组细节特写，以节奏切换画面；叠加关键词。",
+              "narration": "从一个小小的发现，到值得记录的瞬间。让普通的一天，多一点新鲜。"
+            },
+            {
+              "time": "15–25s",
+              "title": "把灵感变成行动",
+              "visual": "主画面与原创文字卡交替，呈现主题亮点。",
+              "narration": "这次，用自己的方式体验城市漫游 · 发现身边的美好。故事的主角，就是你。"
+            },
+            {
+              "time": "25–30s",
+              "title": "留一个参与的入口",
+              "visual": "主题标题定格，出现互动问题与收藏提示。",
+              "narration": "你最想记录哪个瞬间？评论区一起分享。"
+            }
+          ],
+          "caption": "生活的灵感，藏在每一次认真观察里。一起开启「城市漫游 · 发现身边的美好」，收藏这份小小的出发指南。",
+          "hashtags": [
+            "#灵感日常",
+            "#记录生活",
+            "#城市漫游·发现身边的美好"
+          ],
+          "source": "template",
+          "disclosure": "脚本工具使用原创本地模板；真实模型负责工具选择，不负责脚本文案生成。"
+        },
+        "estimate": {
+          "id": "estimate-script-standard-daily",
+          "scriptId": "script-standard-daily",
+          "materialId": "standard-daily",
+          "items": [
+            {
+              "name": "素材授权",
+              "amount": 2
+            },
+            {
+              "name": "内容制作",
+              "amount": 6
+            }
+          ],
+          "total": 8,
+          "durationMinutes": 45,
+          "availableMinutes": 1440,
+          "budgetGap": 0,
+          "timeGapMinutes": 0,
+          "feasible": true,
+          "evaluatedAt": "2026-10-31T13:56:50.230Z"
+        },
+        "savedAt": "2026-10-31T13:56:50.230Z"
+      }
+    }
+  }
+}

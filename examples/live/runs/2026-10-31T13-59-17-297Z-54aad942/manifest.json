@@ -1,0 +1,434 @@
+{
+  "schemaVersion": 2,
+  "runId": "2026-10-31T13-59-17-297Z-54aad942",
+  "status": "failed",
+  "startedAt": "2026-10-31T13:59:17.301Z",
+  "requestedModel": "gpt-6.1-sol",
+  "cases": [
+    {
+      "case": "normal",
+      "passed": true,
+      "checks": [
+        {
+          "name": "known_case",
+          "passed": true,
+          "detail": "仅接受 normal、budget-replan、tool-failure 三种评估场景。"
+        },
+        {
+          "name": "live_record",
+          "passed": true,
+          "detail": "必须是明确标识的真实接口运行记录；离线 Mock 不能充当真实证据。"
+        },
+        {
+          "name": "expected_input",
+          "passed": true,
+          "detail": "输入预算与故障场景必须符合对应验收用例。"
+        },
+        {
+          "name": "completed_with_saved_plan",
+          "passed": true,
+          "detail": "任务完成且存在实际保存方案。"
+        },
+        {
+          "name": "bounded_calls",
+          "passed": true,
+          "detail": "包括失败调用在内的工具次数不得超限。"
+        },
+        {
+          "name": "sequential_trace",
+          "passed": true,
+          "detail": "每步有顺序编号、公开依据和当时的观察摘要。"
+        },
+        {
+          "name": "fresh_model_observations",
+          "passed": true,
+          "detail": "每次动作须携带运行器写入的模型信息，观察数量及哈希须对应该步之前的完整 Trace。"
+        },
+        {
+          "name": "tool_results_and_dependencies",
+          "passed": true,
+          "detail": "按工具原始结果重建依赖并复算费用、可行性，失败不能记成成功。"
+        },
+        {
+          "name": "saved_plan_consistency",
+          "passed": true,
+          "detail": "已保存方案必须对应成功的素材、脚本和估算，且保存时满足预算与截止时间。"
+        },
+        {
+          "name": "successful_artifacts_retained",
+          "passed": true,
+          "detail": "改计划或处理失败后仍保留检索和脚本的成功产物。"
+        },
+        {
+          "name": "direct_premium_path",
+          "passed": true,
+          "detail": "正常场景直接完成精选方案，无失败或不必要的轻量替代。"
+        }
+      ],
+      "errors": [],
+      "toolCalls": 4,
+      "pathSignature": "search_materials:success:premium → generate_script:success: → estimate_plan:success: → save_plan:success:"
+    },
+    {
+      "case": "budget-replan",
+      "passed": false,
+      "checks": [
+        {
+          "name": "known_case",
+          "passed": true,
+          "detail": "仅接受 normal、budget-replan、tool-failure 三种评估场景。"
+        },
+        {
+          "name": "live_record",
+          "passed": true,
+          "detail": "必须是明确标识的真实接口运行记录；离线 Mock 不能充当真实证据。"
+        },
+        {
+          "name": "expected_input",
+          "passed": true,
+          "detail": "输入预算与故障场景必须符合对应验收用例。"
+        },
+        {
+          "name": "completed_with_saved_plan",
+          "passed": true,
+          "detail": "任务完成且存在实际保存方案。"
+        },
+        {
+          "name": "bounded_calls",
+          "passed": true,
+          "detail": "包括失败调用在内的工具次数不得超限。"
+        },
+        {
+          "name": "sequential_trace",
+          "passed": true,
+          "detail": "每步有顺序编号、公开依据和当时的观察摘要。"
+        },
+        {
+          "name": "fresh_model_observations",
+          "passed": true,
+          "detail": "每次动作须携带运行器写入的模型信息，观察数量及哈希须对应该步之前的完整 Trace。"
+        },
+        {
+          "name": "tool_results_and_dependencies",
+          "passed": true,
+          "detail": "按工具原始结果重建依赖并复算费用、可行性，失败不能记成成功。"
+        },
+        {
+          "name": "saved_plan_consistency",
+          "passed": true,
+          "detail": "已保存方案必须对应成功的素材、脚本和估算，且保存时满足预算与截止时间。"
+        },
+        {
+          "name": "successful_artifacts_retained",
+          "passed": true,
+          "detail": "改计划或处理失败后仍保留检索和脚本的成功产物。"
+        },
+        {
+          "name": "observed_12_then_changed_action",
+          "passed": false,
+          "detail": "必须先实际观察精选估算 12 超过预算 10，再选择轻量素材工具；直接选 8 不算此路径通过。"
+        },
+        {
+          "name": "reestimated_8_then_saved",
+          "passed": false,
+          "detail": "替代方案必须重新估算为 8，再保存该估算对应的方案。"
+        }
+      ],
+      "errors": [
+        "observed_12_then_changed_action: 必须先实际观察精选估算 12 超过预算 10，再选择轻量素材工具；直接选 8 不算此路径通过。",
+        "reestimated_8_then_saved: 替代方案必须重新估算为 8，再保存该估算对应的方案。"
+      ],
+      "toolCalls": 5,
+      "pathSignature": "search_materials:success:premium → search_materials:success:standard → generate_script:success: → estimate_plan:success: → save_plan:success:"
+    },
+    {
+      "case": "tool-failure",
+      "passed": false,
+      "checks": [
+        {
+          "name": "known_case",
+          "passed": true,
+          "detail": "仅接受 normal、budget-replan、tool-failure 三种评估场景。"
+        },
+        {
+          "name": "live_record",
+          "passed": true,
+          "detail": "必须是明确标识的真实接口运行记录；离线 Mock 不能充当真实证据。"
+        },
+        {
+          "name": "expected_input",
+          "passed": true,
+          "detail": "输入预算与故障场景必须符合对应验收用例。"
+        },
+        {
+          "name": "completed_with_saved_plan",
+          "passed": true,
+          "detail": "任务完成且存在实际保存方案。"
+        },
+        {
+          "name": "bounded_calls",
+          "passed": true,
+          "detail": "包括失败调用在内的工具次数不得超限。"
+        },
+        {
+          "name": "sequential_trace",
+          "passed": true,
+          "detail": "每步有顺序编号、公开依据和当时的观察摘要。"
+        },
+        {
+          "name": "fresh_model_observations",
+          "passed": true,
+          "detail": "每次动作须携带运行器写入的模型信息，观察数量及哈希须对应该步之前的完整 Trace。"
+        },
+        {
+          "name": "tool_results_and_dependencies",
+          "passed": true,
+          "detail": "按工具原始结果重建依赖并复算费用、可行性，失败不能记成成功。"
+        },
+        {
+          "name": "saved_plan_consistency",
+          "passed": true,
+          "detail": "已保存方案必须对应成功的素材、脚本和估算，且保存时满足预算与截止时间。"
+        },
+        {
+          "name": "successful_artifacts_retained",
+          "passed": true,
+          "detail": "改计划或处理失败后仍保留检索和脚本的成功产物。"
+        },
+        {
+          "name": "failure_observed_then_alternative",
+          "passed": false,
+          "detail": "精选脚本工具实际失败后，下一动作选择轻量替代，而非只自动重试同一工具。"
+        },
+        {
+          "name": "failed_script_not_saved",
+          "passed": false,
+          "detail": "失败的精选脚本不能被伪记为成功产物。"
+        }
+      ],
+      "errors": [
+        "failure_observed_then_alternative: 精选脚本工具实际失败后，下一动作选择轻量替代，而非只自动重试同一工具。",
+        "failed_script_not_saved: 失败的精选脚本不能被伪记为成功产物。"
+      ],
+      "toolCalls": 6,
+      "pathSignature": "search_materials:success:premium → search_materials:success:standard → generate_script:failed: → generate_script:success: → estimate_plan:success: → save_plan:success:"
+    }
+  ],
+  "finishedAt": "2026-10-31T14:00:38.932Z",
+  "evaluation": {
+    "passed": false,
+    "distinctPaths": false,
+    "sameRun": true,
+    "cases": [
+      {
+        "case": "normal",
+        "passed": true,
+        "checks": [
+          {
+            "name": "known_case",
+            "passed": true,
+            "detail": "仅接受 normal、budget-replan、tool-failure 三种评估场景。"
+          },
+          {
+            "name": "live_record",
+            "passed": true,
+            "detail": "必须是明确标识的真实接口运行记录；离线 Mock 不能充当真实证据。"
+          },
+          {
+            "name": "expected_input",
+            "passed": true,
+            "detail": "输入预算与故障场景必须符合对应验收用例。"
+          },
+          {
+            "name": "completed_with_saved_plan",
+            "passed": true,
+            "detail": "任务完成且存在实际保存方案。"
+          },
+          {
+            "name": "bounded_calls",
+            "passed": true,
+            "detail": "包括失败调用在内的工具次数不得超限。"
+          },
+          {
+            "name": "sequential_trace",
+            "passed": true,
+            "detail": "每步有顺序编号、公开依据和当时的观察摘要。"
+          },
+          {
+            "name": "fresh_model_observations",
+            "passed": true,
+            "detail": "每次动作须携带运行器写入的模型信息，观察数量及哈希须对应该步之前的完整 Trace。"
+          },
+          {
+            "name": "tool_results_and_dependencies",
+            "passed": true,
+            "detail": "按工具原始结果重建依赖并复算费用、可行性，失败不能记成成功。"
+          },
+          {
+            "name": "saved_plan_consistency",
+            "passed": true,
+            "detail": "已保存方案必须对应成功的素材、脚本和估算，且保存时满足预算与截止时间。"
+          },
+          {
+            "name": "successful_artifacts_retained",
+            "passed": true,
+            "detail": "改计划或处理失败后仍保留检索和脚本的成功产物。"
+          },
+          {
+            "name": "direct_premium_path",
+            "passed": true,
+            "detail": "正常场景直接完成精选方案，无失败或不必要的轻量替代。"
+          }
+        ],
+        "errors": [],
+        "toolCalls": 4,
+        "pathSignature": "search_materials:success:premium → generate_script:success: → estimate_plan:success: → save_plan:success:"
+      },
+      {
+        "case": "budget-replan",
+        "passed": false,
+        "checks": [
+          {
+            "name": "known_case",
+            "passed": true,
+            "detail": "仅接受 normal、budget-replan、tool-failure 三种评估场景。"
+          },
+          {
+            "name": "live_record",
+            "passed": true,
+            "detail": "必须是明确标识的真实接口运行记录；离线 Mock 不能充当真实证据。"
+          },
+          {
+            "name": "expected_input",
+            "passed": true,
+            "detail": "输入预算与故障场景必须符合对应验收用例。"
+          },
+          {
+            "name": "completed_with_saved_plan",
+            "passed": true,
+            "detail": "任务完成且存在实际保存方案。"
+          },
+          {
+            "name": "bounded_calls",
+            "passed": true,
+            "detail": "包括失败调用在内的工具次数不得超限。"
+          },
+          {
+            "name": "sequential_trace",
+            "passed": true,
+            "detail": "每步有顺序编号、公开依据和当时的观察摘要。"
+          },
+          {
+            "name": "fresh_model_observations",
+            "passed": true,
+            "detail": "每次动作须携带运行器写入的模型信息，观察数量及哈希须对应该步之前的完整 Trace。"
+          },
+          {
+            "name": "tool_results_and_dependencies",
+            "passed": true,
+            "detail": "按工具原始结果重建依赖并复算费用、可行性，失败不能记成成功。"
+          },
+          {
+            "name": "saved_plan_consistency",
+            "passed": true,
+            "detail": "已保存方案必须对应成功的素材、脚本和估算，且保存时满足预算与截止时间。"
+          },
+          {
+            "name": "successful_artifacts_retained",
+            "passed": true,
+            "detail": "改计划或处理失败后仍保留检索和脚本的成功产物。"
+          },
+          {
+            "name": "observed_12_then_changed_action",
+            "passed": false,
+            "detail": "必须先实际观察精选估算 12 超过预算 10，再选择轻量素材工具；直接选 8 不算此路径通过。"
+          },
+          {
+            "name": "reestimated_8_then_saved",
+            "passed": false,
+            "detail": "替代方案必须重新估算为 8，再保存该估算对应的方案。"
+          }
+        ],
+        "errors": [
+          "observed_12_then_changed_action: 必须先实际观察精选估算 12 超过预算 10，再选择轻量素材工具；直接选 8 不算此路径通过。",
+          "reestimated_8_then_saved: 替代方案必须重新估算为 8，再保存该估算对应的方案。"
+        ],
+        "toolCalls": 5,
+        "pathSignature": "search_materials:success:premium → search_materials:success:standard → generate_script:success: → estimate_plan:success: → save_plan:success:"
+      },
+      {
+        "case": "tool-failure",
+        "passed": false,
+        "checks": [
+          {
+            "name": "known_case",
+            "passed": true,
+            "detail": "仅接受 normal、budget-replan、tool-failure 三种评估场景。"
+          },
+          {
+            "name": "live_record",
+            "passed": true,
+            "detail": "必须是明确标识的真实接口运行记录；离线 Mock 不能充当真实证据。"
+          },
+          {
+            "name": "expected_input",
+            "passed": true,
+            "detail": "输入预算与故障场景必须符合对应验收用例。"
+          },
+          {
+            "name": "completed_with_saved_plan",
+            "passed": true,
+            "detail": "任务完成且存在实际保存方案。"
+          },
+          {
+            "name": "bounded_calls",
+            "passed": true,
+            "detail": "包括失败调用在内的工具次数不得超限。"
+          },
+          {
+            "name": "sequential_trace",
+            "passed": true,
+            "detail": "每步有顺序编号、公开依据和当时的观察摘要。"
+          },
+          {
+            "name": "fresh_model_observations",
+            "passed": true,
+            "detail": "每次动作须携带运行器写入的模型信息，观察数量及哈希须对应该步之前的完整 Trace。"
+          },
+          {
+            "name": "tool_results_and_dependencies",
+            "passed": true,
+            "detail": "按工具原始结果重建依赖并复算费用、可行性，失败不能记成成功。"
+          },
+          {
+            "name": "saved_plan_consistency",
+            "passed": true,
+            "detail": "已保存方案必须对应成功的素材、脚本和估算，且保存时满足预算与截止时间。"
+          },
+          {
+            "name": "successful_artifacts_retained",
+            "passed": true,
+            "detail": "改计划或处理失败后仍保留检索和脚本的成功产物。"
+          },
+          {
+            "name": "failure_observed_then_alternative",
+            "passed": false,
+            "detail": "精选脚本工具实际失败后，下一动作选择轻量替代，而非只自动重试同一工具。"
+          },
+          {
+            "name": "failed_script_not_saved",
+            "passed": false,
+            "detail": "失败的精选脚本不能被伪记为成功产物。"
+          }
+        ],
+        "errors": [
+          "failure_observed_then_alternative: 精选脚本工具实际失败后，下一动作选择轻量替代，而非只自动重试同一工具。",
+          "failed_script_not_saved: 失败的精选脚本不能被伪记为成功产物。"
+        ],
+        "toolCalls": 6,
+        "pathSignature": "search_materials:success:premium → search_materials:success:standard → generate_script:failed: → generate_script:success: → estimate_plan:success: → save_plan:success:"
+      }
+    ],
+    "boundary": "验证路径、依赖及运行元数据的一致性；不独立证明服务商真实性或候选人个人贡献。"
+  }
+}

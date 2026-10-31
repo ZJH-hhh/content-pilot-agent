@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f16a42"><meta name="description" content="Content Pilot 内容任务规划工作台，帮助运营在预算与截止时间内，把灵感变成可执行的内容方案。">
+  <title>Content Pilot · 内容任务规划工作台</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/styles.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <a href="/" class="brand" aria-label="Content Pilot 首页"><span class="brand-mark">c<span>p</span><i></i></span><span>Content Pilot<small>让每个灵感，都有着落</small></span></a>
+    <div class="workspace-label">WORKSPACE <span>个人工作空间</span></div>
+    <nav aria-label="主导航">
+      <button class="nav-item active" data-view="workspace"><span data-icon="grid"></span>规划工作台<span class="nav-key">⌘ 1</span></button>
+      <button class="nav-item" data-view="history"><span data-icon="clock"></span>任务记录<span class="nav-count" id="nav-count">0</span></button>
+      <button class="nav-item" data-view="materials"><span data-icon="layers"></span>素材资源库</button>
+    </nav>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section">灵感起点 <span>✧</span></div>
+    <button class="inspiration" data-template="travel"><span class="template-dot peach"></span>城市漫游企划<span>↗</span></button>
+    <button class="inspiration" data-template="launch"><span class="template-dot violet"></span>新品发布预热<span>↗</span></button>
+    <button class="inspiration" data-template="weekend"><span class="template-dot green"></span>周末生活提案<span>↗</span></button>
+    <div class="sidebar-bottom"><div class="mode-card"><span class="mode-icon" data-icon="flask"></span><strong id="mode-title">离线体验模式</strong><p id="mode-copy">使用合成素材与模拟工具，<br>放心探索你的下一个灵感。</p><button id="mode-info">了解运行模式 <span>↗</span></button></div><div class="profile"><span class="avatar">P</span><span><strong>创作工作空间</strong><small>本地存储 · 随时继续</small></span><span class="profile-dots">···</span></div></div>
+  </aside>
+  <div class="page-shell">
+    <header class="topbar"><div class="breadcrumb"><span data-icon="panel"></span><span>工作空间</span><span class="slash">/</span><strong id="breadcrumb-current">规划工作台</strong></div><div class="header-actions"><button class="search-trigger" id="search-open"><span data-icon="search"></span>搜索任务<span>Ctrl K</span></button><span class="header-separator"></span><span class="online"><i></i>Agent 就绪</span><button class="icon-button help" id="help-open" aria-label="使用指南">?</button></div></header>
+    <main id="main">
+      <section id="workspace-view" class="view">
+        <div class="page-heading"><div><div class="eyebrow"><i></i> YOUR IDEAS, READY FOR TAKEOFF</div><h1>好内容，从一个好计划开始<span>。</span></h1><p>把创意交给你，把规划交给 Agent。每一步，都心中有数。</p></div><button class="button secondary compact" id="new-task"><span data-icon="plus"></span>新建任务</button></div>
+        <div class="stats-grid"><div class="stat"><span class="stat-icon apricot" data-icon="layers"></span><div><span>累计规划任务</span><strong id="stat-total">0<small> 个</small></strong></div><span class="stat-detail">你的灵感足迹</span></div><div class="stat"><span class="stat-icon mint" data-icon="check"></span><div><span>已完成方案</span><strong id="stat-complete">0<small> 份</small></strong></div><span class="stat-detail" id="completion-rate">准备好出发</span></div><div class="stat"><span class="stat-icon lavender" data-icon="wallet"></span><div><span>预计制作费用</span><strong id="stat-cost">0<small> 单位</small></strong></div><span class="stat-detail">按最终方案统计</span></div><div class="stat"><span class="stat-icon butter" data-icon="sparkles"></span><div><span>累计预算结余</span><strong id="stat-saved">0<small> 单位</small></strong></div><span class="stat-detail">让预算用在刀刃上</span></div></div>
+        <div class="work-grid">
+          <section class="panel brief-panel"><div class="panel-title"><span class="title-icon" data-icon="edit"></span><h2>创建内容任务</h2><span class="small-label">NEW BRIEF</span></div><p class="panel-subtitle">告诉 Agent 你的目标，剩下的交给它。</p>
+            <form id="brief-form" novalidate>
+              <label for="theme">内容主题 <span class="required">*</span></label><div class="textarea-wrap"><textarea id="theme" maxlength="120" placeholder="例如：为城市漫游活动策划一支 30 秒短视频，吸引年轻人记录身边的美好。" required></textarea><span id="theme-count">0 / 120</span></div>
+              <div class="field-label"><label for="budget">项目预算 <span class="required">*</span></label><span class="tooltip-label" title="素材授权与内容制作的合计，所有费用均为模拟单位。">模拟单位 ⓘ</span></div><div class="input-wrap"><span data-icon="wallet"></span><input id="budget" type="number" min="0.01" max="1000000" step="0.01" placeholder="10" value="10" required><span class="input-suffix">单位</span></div>
+              <label for="deadline">截止时间 <span class="required">*</span></label><div class="input-wrap"><input id="deadline" type="datetime-local" required></div>
+              <details class="advanced"><summary><span data-icon="sliders"></span>高级选项<span>可选</span></summary><label for="scenario">验证场景</label><select id="scenario"><option value="normal">标准运行 · 自动规划</option><option value="tool_failure">注入一次脚本工具失败</option><option value="partial">注入一次素材部分成功</option><option value="save_failure">注入一次保存失败（可续跑）</option></select><label for="max-steps">工具调用上限</label><input id="max-steps" type="number" value="12" min="1" max="32"><p>上限包含失败调用，续跑不会重置计数。</p></details>
+              <div id="form-error" class="form-error" role="alert" hidden></div><button class="button primary start-button" type="submit" id="start-button"><span data-icon="sparkles"></span><span>开始智能规划</span><span data-icon="arrow-right"></span></button><p class="form-footnote"><span data-icon="shield"></span>每次工具调用都有记录，结果可追溯</p>
+            </form>
+            <div class="brief-tip"><span>✦</span><p><strong>试试给灵感一点空间</strong><br>预算 10 单位，看看 Agent 如何在 12 单位的精选方案与 8 单位的轻量方案间做取舍。</p></div>
+          </section>
+          <section class="panel result-panel"><div class="result-header"><div><span class="live-dot"></span><h2>任务工作区</h2><span class="task-id" id="task-id">等待创建</span></div><span class="badge neutral" id="task-status">尚未开始</span></div><div class="result-tabs" role="tablist" aria-label="任务详情"><button role="tab" aria-selected="true" class="active" data-tab="overview">方案概览</button><button role="tab" aria-selected="false" data-tab="trace">执行轨迹 <span id="trace-count">0</span></button><button role="tab" aria-selected="false" data-tab="outputs">全部产物</button><button id="export-button" class="export-button" disabled><span data-icon="download"></span>导出</button></div><div id="result-content"></div></section>
+        </div>
+        <section class="recent-section"><div class="section-heading"><h2>最近的灵感足迹 <span id="recent-count">0 个任务</span></h2><button class="text-button" data-view="history">查看全部<span data-icon="arrow-right"></span></button></div><div id="recent-tasks"></div></section>
+        <footer class="footer"><span><i></i> 为有想法的人，留出更多创作时间。</span><span>Content Pilot <span class="footer-dot">·</span> 所有费用均为模拟单位</span></footer>
+      </section>
+      <section id="history-view" class="view" hidden><div class="page-heading"><div><div class="eyebrow">YOUR CREATIVE JOURNEY</div><h1>每个灵感，都留下足迹<span>。</span></h1><p>查看任务状态，找回成功产物，继续尚未完成的计划。</p></div></div><div class="history-toolbar"><div class="input-wrap"><span data-icon="search"></span><input id="history-search" placeholder="搜索内容主题…" aria-label="搜索内容主题"></div><select id="history-filter" aria-label="筛选任务状态"><option value="all">全部状态</option><option value="completed">已完成</option><option value="incomplete">未完成</option><option value="needs_input">待补充</option><option value="running">执行中</option></select></div><div class="panel history-panel" id="history-list"></div></section>
+      <section id="materials-view" class="view" hidden><div class="page-heading"><div><div class="eyebrow">A LITTLE INSPIRATION GOES A LONG WAY</div><h1>给好故事，一个好起点<span>。</span></h1><p>原创合成素材、透明的制作费用，帮你把创意变成现实。</p></div><span class="badge neutral">合成资料 · 可离线使用</span></div><div class="material-filters"><button class="chip active" data-tier="all">全部素材</button><button class="chip" data-tier="premium">精选素材</button><button class="chip" data-tier="standard">轻量素材</button></div><div id="material-library" class="material-library"></div><div class="library-note"><span data-icon="info"></span>素材为原创文本与分镜描述，不包含真实图片或视频；费用是预计制作成本，工具调用费用为 0。</div></section>
+    </main>
+  </div>
+  <dialog id="info-dialog"><div class="dialog-head"><h2 id="dialog-title"></h2><button class="icon-button" id="dialog-close" aria-label="关闭">×</button></div><div id="dialog-body"></div></dialog><div id="toast" role="status" hidden></div>
+</body>
+</html>

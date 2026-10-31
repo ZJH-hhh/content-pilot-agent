@@ -1,0 +1,88 @@
+{
+  "scope": "AI-assisted implementation interval observable from first file creation to final verification; not the exam timer or candidate personal time",
+  "startedAt": "2026-10-31T13:07:27.420Z",
+  "verifiedAt": "2026-10-31T13:32:47.495Z",
+  "elapsedMinutes": 25.3,
+  "userTimezone": "America/Toronto",
+  "localVerifiedTime": "2026年10月31日星期六 GMT-4 09:32:47",
+  "node": "v24.15.0",
+  "automatedTests": {
+    "passed": 28,
+    "failed": 0,
+    "report": "examples/test-results.txt"
+  },
+  "offlineScenarios": 12,
+  "liveModelEvaluated": true,
+  "remotePublished": false,
+  "aiGeneratedInitialImplementation": true,
+  "candidateContribution": "本人确认借助 AI 实现全部功能；工具执行方式单独披露",
+  "deliveryFormat": "github-and-zip",
+  "userInstruction": "No remote repository needed; submit a zip archive.",
+  "revisions": [
+    {
+      "scope": "AI-assisted audit revision; not candidate personal time",
+      "firstObservedCodeChange": "2026-10-31T13:52:08.498Z",
+      "verifiedAt": "2026-10-31T13:56:47.938Z",
+      "automatedTests": {
+        "passed": 39,
+        "failed": 0,
+        "report": "examples/test-results.txt"
+      },
+      "liveModelEvaluated": false,
+      "sourceAudit": "audit/审计报告.md",
+      "sourceArchiveSha256": "92DC3B2FC7F734339820C459B634B80FBBD00A6850A0635E09F3CC35440C7525",
+      "candidateActualMinutes": null
+    },
+    {
+      "scope": "Live API evaluation after user configuration; execution performed by Codex, not a statement of candidate personal time",
+      "startedAt": "2026-10-31T13:59:17.297Z",
+      "verifiedAt": "2026-10-31T14:08:03.776Z",
+      "model": "gpt-6.1-sol",
+      "attemptedSuites": 3,
+      "passedRun": "2026-10-31T14-04-34-911Z-27e70588",
+      "liveModelEvaluated": true,
+      "candidateActualMinutes": null
+    }
+  ],
+  "originalAssessmentRequiresGithub": true,
+  "remotePublishingRequested": true,
+  "remoteRequiredByCurrentDeliveryAgreement": false,
+  "currentVerification": {
+    "verifiedAt": "2026-10-31T14:08:03.775Z",
+    "automatedTests": {
+      "passed": 40,
+      "failed": 0,
+      "report": "examples/test-results.txt"
+    },
+    "liveModel": {
+      "evaluated": true,
+      "passed": true,
+      "model": "gpt-6.1-sol",
+      "runId": "2026-10-31T14-04-34-911Z-27e70588",
+      "scenarios": [
+        {
+          "name": "normal",
+          "passed": true,
+          "toolCalls": 4
+        },
+        {
+          "name": "budget-replan",
+          "passed": true,
+          "toolCalls": 7
+        },
+        {
+          "name": "tool-failure",
+          "passed": true,
+          "toolCalls": 6
+        }
+      ],
+      "report": "examples/live/README.md"
+    }
+  },
+  "candidateReportedDuration": {
+    "value": 2,
+    "unit": "days",
+    "reportedText": "实际投入2天",
+    "precision": "未提供精确分钟数"
+  }
+}

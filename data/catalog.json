@@ -1,0 +1,14 @@
+{
+  "disclaimer": "全部素材为原创合成文本；费用为模拟制作单位，工具本身不产生扣款。预算用于约束预计制作成本。",
+  "materials": [
+    { "id": "premium-city", "tier": "premium", "title": "城市漫游 · 电影感影像包", "tags": ["旅行", "生活方式", "城市"], "description": "逆光街景、城市天际线、胶片转场与环境声的合成分镜素材。", "licenseCost": 6, "productionCost": 6, "durationMinutes": 90, "palette": "amber" },
+    { "id": "premium-studio", "tier": "premium", "title": "灵感实验室 · 创意影像包", "tags": ["品牌", "科技", "产品", "新品", "发布"], "description": "产品特写、光影棚拍与创意字幕的合成分镜素材。", "licenseCost": 6, "productionCost": 6, "durationMinutes": 90, "palette": "violet" },
+    { "id": "standard-daily", "tier": "standard", "title": "日常切片 · 轻量叙事素材", "tags": ["通用", "生活", "旅行"], "description": "手机竖屏、自然光场景与原创文字卡片的合成分镜素材。", "licenseCost": 2, "productionCost": 6, "durationMinutes": 45, "palette": "green" }
+  ],
+  "tools": [
+    { "name": "search_materials", "label": "素材检索", "planningFee": 0, "latencyMinutes": 0 },
+    { "name": "generate_script", "label": "脚本生成", "planningFee": 0, "latencyMinutes": 0 },
+    { "name": "estimate_plan", "label": "成本估算", "planningFee": 0, "latencyMinutes": 0 },
+    { "name": "save_plan", "label": "方案保存", "planningFee": 0, "latencyMinutes": 0 }
+  ]
+}
