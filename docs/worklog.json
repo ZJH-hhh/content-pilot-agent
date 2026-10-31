@@ -15,7 +15,7 @@
   "liveModelEvaluated": true,
   "remotePublished": true,
   "aiGeneratedInitialImplementation": true,
-  "candidateContribution": "本人确认借助 AI 实现全部功能；工具执行方式单独披露",
+  "candidateContribution": "本人负责项目审计、发现问题并提供审计报告与修改反馈；Codex 负责其实际完成的工程实现、修订及运行验证。",
   "deliveryFormat": "github-and-zip",
   "userInstruction": "No remote repository needed; submit a zip archive.",
   "revisions": [
