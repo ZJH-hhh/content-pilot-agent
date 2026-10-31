@@ -13,7 +13,7 @@
   },
   "offlineScenarios": 12,
   "liveModelEvaluated": true,
-  "remotePublished": false,
+  "remotePublished": true,
   "aiGeneratedInitialImplementation": true,
   "candidateContribution": "本人确认借助 AI 实现全部功能；工具执行方式单独披露",
   "deliveryFormat": "github-and-zip",
@@ -84,5 +84,7 @@
     "unit": "days",
     "reportedText": "实际投入2天",
     "precision": "未提供精确分钟数"
-  }
+  },
+  "githubUrl": "https://github.com/ZJH-hhh/content-pilot-agent",
+  "reviewerAccessConfirmed": false
 }

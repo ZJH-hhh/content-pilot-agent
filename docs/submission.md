@@ -4,9 +4,10 @@
 - 交付方式：用户已授权创建 GitHub 仓库并上传，同时保留压缩包
 - 文件：`Content-Pilot-Submission.zip`
 - GitHub URL：[ZJH-hhh/content-pilot-agent](https://github.com/ZJH-hhh/content-pilot-agent)，私有仓库已创建
-- 最终 commit SHA：上传完成后以远程 `main` 的完整 SHA 为准，亦可在克隆目录执行 `git rev-parse HEAD`；不将尚未产生的 SHA 写为已完成
+- 上传状态：完整项目已成功推送至 `main`；代码、文档、40 项测试报告、离线与真实模型 Trace 均在同一仓库
+- 最终 commit SHA：以最终回复及压缩包旁 `submission-final.json` 回执核对的远程 `refs/heads/main` 完整 SHA 为准；克隆后执行 `git rev-parse HEAD` 可读取同一值
 - 题号：**2**
-- 访问权限：计划使用私有仓库；本人尚无指定评审账号，因此评审可读尚未确认
+- 访问权限：私有仓库，已通过所有者登录及推送验证；本人尚无指定评审账号，因此评审可读尚未确认
 - 离线评审：解压后 `npm run dev`、`npm test`、`npm run examples`
 - 实测 Node：24.15.0，最低要求 22.9+
 - 真实模型验证：已实际执行，最终三场景及独立复核通过；请求模型 `gpt-6.1-sol`，见 `examples/live/README.md` 与原始记录

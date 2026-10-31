@@ -12,7 +12,9 @@
     "reviewerAccount": null,
     "visibility": "private",
     "repositoryCreated": true,
-    "uploadVerified": false
+    "uploadVerified": true,
+    "uploadedImplementationCommit": "67aa06b223096019133e9b2f23fd5284fbeee4e2",
+    "ownerAccessVerified": true
   },
-  "note": "正式题号2；已创建私有仓库，等待上传核对。本人尚无指定评审账号，因此 reviewerAccessConfirmed 保持 false。"
+  "note": "题号2；私有 GitHub 仓库已创建并成功推送 main。最终 SHA 由当前仓库 HEAD 解析，交付回执核对远程 refs/heads/main；本人尚无评审账号，reviewerAccessConfirmed 仍为 false。"
 }

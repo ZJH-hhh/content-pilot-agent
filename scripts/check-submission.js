@@ -18,10 +18,10 @@ if (submission.github?.commitShaSource === 'git-head') {
     if (origin === submission.github.url) resolvedCommitSha = execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim();
   } catch { /* A ZIP has no Git metadata; the external delivery receipt records its SHA. */ }
 }
-const githubDeclared = typeof submission.topicNumber === 'string' && submission.topicNumber.trim()
+const githubIdentityComplete = typeof submission.topicNumber === 'string' && submission.topicNumber.trim()
   && /^https:\/\/github\.com\/[^/\s]+\/[^/\s]+\/?$/.test(submission.github?.url || '')
-  && /^[a-f\d]{40}$/i.test(resolvedCommitSha || '')
-  && submission.github?.reviewerAccessConfirmed === true;
+  && /^[a-f\d]{40}$/i.test(resolvedCommitSha || '');
+const githubDeclared = githubIdentityComplete && submission.github?.reviewerAccessConfirmed === true;
 const personalDeclared = contribution.confirmedByCandidate === true
   && Array.isArray(contribution.codeModifications) && Array.isArray(contribution.personalVerifications)
   && ((Number.isFinite(contribution.actualMinutes) && contribution.actualMinutes >= 0)
@@ -32,7 +32,7 @@ const personalDeclared = contribution.confirmedByCandidate === true
 const result = {
   checkedAt: new Date().toISOString(), deliveryFormat: submission.deliveryFormat,
   liveModel: live,
-  github: { passed: Boolean(githubDeclared), url: submission.github?.url, commitSha: resolvedCommitSha || null, reviewerAccessConfirmed: submission.github?.reviewerAccessConfirmed === true, verification: 'SHA 从当前仓库 HEAD 或静态交付字段读取；远程 SHA、仓库可读性与评审访问应分别核实。', detail: githubDeclared ? '提交字段已提供，仍需核对远程仓库。' : submission.remotePublishingRequested ? '已授权创建上传；仓库 URL、最终 SHA 或评审访问仍有未完成项。' : '尚未提供完整 GitHub 提交信息。' },
+  github: { passed: Boolean(githubDeclared), url: submission.github?.url, commitSha: resolvedCommitSha || null, reviewerAccessConfirmed: submission.github?.reviewerAccessConfirmed === true, verification: 'SHA 从当前仓库 HEAD 或静态交付字段读取；远程 SHA、仓库可读性与评审访问应分别核实。', detail: githubDeclared ? '提交字段已提供，仍需核对远程仓库。' : githubIdentityComplete ? '题号、仓库 URL 和完整 SHA 已具备；尚无指定评审账号，私有仓库的评审访问未确认。' : submission.remotePublishingRequested ? '已授权创建上传；仓库 URL、最终 SHA 或评审访问仍有未完成项。' : '尚未提供完整 GitHub 提交信息。' },
   personalDisclosure: { passed: personalDeclared, verification: '本人事实声明；明确区分 AI 辅助与本人手动验证。', detail: personalDeclared ? '本人已确认借助 AI 实现全部功能、投入 2 天；验证执行方式与未完成项已披露。' : contribution.candidateStatement ? '已收到实现范围声明，贡献或耗时字段仍不完整。' : '个人贡献声明尚未完整提供。' },
   formalSubmissionComplete: Boolean(live.passed && githubDeclared && personalDeclared)
 };
